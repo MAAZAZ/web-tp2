@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css">
+  <style>
+  .zaka{
+    border: 2px  dotteD  cadetblue;
+    margin-top : 8px;
+    padding: 10px
+  }
+  
+  table,td,tr{
+    border: 1px dotted black;
+    margin-left:auto; 
+    margin-right:auto;
+    width: 1000px;
+    height: 100px;
+    text-align: center
+  }
+  
+
+/* createlement queryselector  apprendchild clonenode createtextnode setarrtibute('align','right')  */
+  </style>
+</head>
+<body>
+  <fieldset id="screen" style="background-color:white;" >
+
+    <select id="box" onchange="changecolor()">
+  <option value="Red">Red</option>
+  <option value="Green">Green</option>
+  <option value="BlUE">Blue</option>
+  <option value="white" selected>White</option>
+    </select>
+
+
+    <div class="zaka">
+  <form>
+    <label>Lignes:</label>
+    <input type="text" id="rows" placeholder="10">
+    <br> <br>
+    <label> Colonnnes :</label>
+      <input type="text" id="cols" placeholder="10">
+      <br><br>
+      <input type="button" value="Afficher" onclick='affiche()'>
+      </form>
+  <div id="out">
+
+
+    </div>
+    </fieldset>
+    
+  <script type="text/javascript"> 
+
+  function hello(){
+    alert("hello");
+  }
+  
+  function changecolor(){
+  var color=document.getElementById("box").value,
+      image=document.getElementById("screen");
+      
+      image.style.backgroundColor=color;
+
+  }
+
+  function maketable(lignes,colonnes)
+  {
+   var tbl='<table>',
+       i,j;
+   for(i=0;i<lignes;i++){
+   tbl+='<tr>'
+    for(j=0;j<colonnes;j++)
+    tbl+='<td id="ex" onmouseUp="changer()" onmouseDown="changer()">'
+    tbl+='</td>'
+    tbl+='</tr>'
+    }
+   tbl+='</table>'
+  return tbl;
+  }
+
+  function affiche(){
+    var lignes=document.getElementById('rows').value,
+        colonnes=document.getElementById('cols').value;
+        document.getElementById('out').innerHTML=maketable(lignes,colonnes);
+  }
+
+  function chang(){
+  var a,b,c;
+  a=parseInt(math.random()*255);
+  b=parseInt(math.random()*255);
+  c=parseInt(math.random()*255);
+  return 'gbr(' + a +',' + b + ',' + c + ')';
+  }
+
+  function changer(){
+  document.getElementById("ex").style.backgroundColor="red";
+  }
+  </script>
+  </div>
+</body>
+</html>
